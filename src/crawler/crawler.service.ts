@@ -6,13 +6,13 @@ import { Link } from 'src/utils/intefaces/link.interface';
 @Injectable()
 export class CrawlerService {
   ALLOW_EXTENSIONS = ['pdf', 'csv', 'ods', 'xls'];
-  async removerDuplicados(data: any) {
+  async removerDuplicados(data: Link[]): Promise<Link[]> {
     const uniqueLinks: Link[] = [];
-    data.forEach((link: any) => {
-      if (link?.uniqueKey?.length > 0) {
+    data.forEach((link: Link) => {
+      if (link?.url?.length > 0) {
         const newObj = {} as Link;
-        const ext = link.uniqueKey.split('.').pop();
-        newObj.url = link.uniqueKey;
+        const ext = link.url.split('.').pop();
+        newObj.url = link.url;
         newObj['ext'] =
           ext.length < 5 && this.ALLOW_EXTENSIONS.includes(ext) ? ext : '';
 
@@ -47,12 +47,17 @@ export class CrawlerService {
     await crawler.run(url);
 
     const combinedLinks = [...linksU, ...linksP];
-    combinedLinks.forEach((link: any) => {
-      result.push({ url: link.url, ext: '', status: '' });
-    });
+    combinedLinks.forEach(
+      (links: (ProcessedRequest | UnprocessedRequest)[]) => {
+        links.forEach((link) => {
+          result.push({ url: link.uniqueKey, ext: '', status: '' });
+        });
+      },
+    );
+    const totalLinks = result.length;
     result = await this.removerDuplicados(result);
     console.log(
-      `Númuero de links encontados: ${combinedLinks.length}. Links únicos: ${result.length}`,
+      `Númuero de links encontados: ${totalLinks}. Links únicos: ${result.length}`,
     );
 
     return result;
