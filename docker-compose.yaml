@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  app:
+    build: .
+    entrypoint: ["sh", "./.docker/entrypoint.sh"]
+    container_name: crawler-api
+    ports:
+      - 3004:3004
+    volumes:
+      - .:/home/node/app
