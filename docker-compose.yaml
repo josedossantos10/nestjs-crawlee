@@ -9,3 +9,19 @@ services:
       - 3004:3004
     volumes:
       - .:/home/node/app
+    depends_on:
+      - db
+
+  db:
+    build: .docker/postgres
+    container_name: db
+    ports:
+      - 5438:5432
+    restart: always
+    tty: true
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=crawler
+    volumes:
+      - .docker/dbdata:/var/lib/postgresql/data
+   
