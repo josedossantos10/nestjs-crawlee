@@ -9,7 +9,7 @@
 $ git clone https://github.com/josedossantos10/nestjs-crawlee.git
 $ cd nestjs-crawlee
 ```
-
+Atualize as variáveis de ambiente no arquivo *.env* para os de suua preferência.
 ## Construindo e levantando a ferramenta
 
 ```bash
