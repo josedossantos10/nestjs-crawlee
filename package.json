@@ -2,7 +2,10 @@
   "name": "nestjs-crawlee",
   "version": "0.0.1",
   "description": "",
-  "authors": ["José Antônio", "João Emerson"],
+  "authors": [
+    "José Antônio",
+    "João Emerson"
+  ],
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -27,6 +30,7 @@
     "@nestjs/core": "^10.0.0",
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^10.0.0",
+    "@nestjs/swagger": "^8.0.7",
     "@nestjs/typeorm": "^10.0.2",
     "crawlee": "^3.11.1",
     "pg": "^8.12.0",
