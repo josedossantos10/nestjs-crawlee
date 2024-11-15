@@ -6,6 +6,7 @@ import { TypeOrmConfigService } from 'typeorm-config.service';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CrawlerModule } from './crawler/crawler.module';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { CrawlerModule } from './crawler/crawler.module';
       },
     }),
     CrawlerModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
