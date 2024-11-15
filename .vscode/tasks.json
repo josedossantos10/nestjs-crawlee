@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "exec",
+			"type": "shell",
+			"command": "docker exec -it alertaai-api bash",
+			"problemMatcher": [],
+		}
+	]
+}
