@@ -12,14 +12,13 @@ async function bootstrap() {
   app.disable('X-Powered-By');
 
   const config = new DocumentBuilder()
-  .setTitle('AlertaAi API')
-  .setDescription('API para cadastro, consulta e envio de alertas automáticos sobre cotações de milhas aéreas')
-  .setVersion('1.0')
-  .addServer(configService.get('SERVER_URL'), 'Servidor principal')
-  .build();
-const documentFactory = () => SwaggerModule.createDocument(app, config);
-SwaggerModule.setup('swagger', app, documentFactory);
-
+    .setTitle('Crawler API')
+    .setDescription('API para realizar a busca de informações de um site')
+    .setVersion('1.0')
+    .addServer(configService.get('SERVER_URL'), 'Servidor principal')
+    .build();
+  const documentFactory = () => SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('swagger', app, documentFactory);
 
   await app.listen(3004);
 
