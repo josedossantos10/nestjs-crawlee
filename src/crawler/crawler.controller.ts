@@ -4,7 +4,7 @@ import { CrawlerService } from './crawler.service';
 
 @Controller('crawler')
 export class CrawlerController {
-  constructor(private readonly crawlerService: CrawlerService) {}
+  constructor(private readonly crawlerService: CrawlerService) { }
 
   @Post('sitemap')
   async obterLinksSitemap(@Body() body: { url: string }) {

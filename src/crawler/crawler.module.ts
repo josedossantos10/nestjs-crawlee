@@ -8,4 +8,4 @@ import { CrawlerService } from './crawler.service';
   controllers: [CrawlerController],
   providers: [CrawlerService],
 })
-export class CrawlerModule {}
+export class CrawlerModule { }
