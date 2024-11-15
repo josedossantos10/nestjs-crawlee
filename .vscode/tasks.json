@@ -4,7 +4,7 @@
 		{
 			"label": "exec",
 			"type": "shell",
-			"command": "docker exec -it alertaai-api bash",
+			"command": "docker exec -it crawler-api bash",
 			"problemMatcher": [],
 		}
 	]
