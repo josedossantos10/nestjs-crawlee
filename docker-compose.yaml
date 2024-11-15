@@ -4,7 +4,7 @@ services:
   app:
     build: .
     entrypoint: ["sh", "./.docker/entrypoint.sh"]
-    container_name: crawler-api
+    container_name: alertaai-api
     ports:
       - 3004:3004
     volumes:
@@ -21,7 +21,7 @@ services:
     tty: true
     environment:
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=crawler
+      - POSTGRES_DB=alertaai
     volumes:
       - .docker/dbdata:/var/lib/postgresql/data
    
