@@ -12,9 +12,7 @@ export class CrawlerController {
   }
 
   @Post('rastrear')
-  async rastrearLinks(
-    @Body() body: { urls: string[]; maxProfundidade: number },
-  ) {
+  async rastrearLinks(@Body() body: { urls: string[]; maxProfundidade: number }) {
     return this.crawlerService.rastrearLinks(body.urls, body.maxProfundidade);
   }
 

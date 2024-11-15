@@ -13,8 +13,7 @@ export class CrawlerService {
         const newObj = {} as Link;
         const ext = link.url.split('.').pop();
         newObj.url = link.url;
-        newObj['ext'] =
-          ext.length < 5 && this.ALLOW_EXTENSIONS.includes(ext) ? ext : '';
+        newObj['ext'] = ext.length < 5 && this.ALLOW_EXTENSIONS.includes(ext) ? ext : '';
 
         if (uniqueLinks.findIndex((x) => x.url === newObj.url) === -1) {
           uniqueLinks.push(newObj);
@@ -23,10 +22,7 @@ export class CrawlerService {
     });
     return uniqueLinks;
   }
-  async rastrearLinks(
-    url: string[],
-    maxProfundidade: number = 10,
-  ): Promise<Link[]> {
+  async rastrearLinks(url: string[], maxProfundidade: number = 10): Promise<Link[]> {
     const linksP: ProcessedRequest[][] = [];
     const linksU: UnprocessedRequest[][] = [];
     let result: Link[] = [];
@@ -47,18 +43,14 @@ export class CrawlerService {
     await crawler.run(url);
 
     const combinedLinks = [...linksU, ...linksP];
-    combinedLinks.forEach(
-      (links: (ProcessedRequest | UnprocessedRequest)[]) => {
-        links.forEach((link) => {
-          result.push({ url: link.uniqueKey, ext: '', status: '' });
-        });
-      },
-    );
+    combinedLinks.forEach((links: (ProcessedRequest | UnprocessedRequest)[]) => {
+      links.forEach((link) => {
+        result.push({ url: link.uniqueKey, ext: '', status: '' });
+      });
+    });
     const totalLinks = result.length;
     result = await this.removerDuplicados(result);
-    console.log(
-      `Númuero de links encontados: ${totalLinks}. Links únicos: ${result.length}`,
-    );
+    console.log(`Númuero de links encontados: ${totalLinks}. Links únicos: ${result.length}`);
 
     return result;
   }
