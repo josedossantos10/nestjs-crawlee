@@ -2,11 +2,12 @@
   "name": "nestjs-crawlee",
   "version": "0.0.1",
   "description": "",
-  "author": "José Antônio",
+  "authors": ["José Antônio", "João Emerson"],
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
+    "docker:bash": "docker exec -it alertaai-api bash",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
