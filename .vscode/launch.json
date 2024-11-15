@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug API",
+            "type": "node",
+            "request": "launch",
+            "preLaunchTask": "exec",  
+            "program": "${workspaceFolder}/src/index.js",
+            "outFiles": [
+                "${workspaceFolder}/out/**/*.js"
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}
