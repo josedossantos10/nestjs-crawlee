@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeor
 import { ApiProperty } from '@nestjs/swagger';
 
 @Entity('usuario') // Nome da tabela no banco de dados
-export class User {
+export class Usuario {
   @PrimaryGeneratedColumn({
     comment: 'Identificador único da tabela (chave primária)',
     type: 'bigint',
@@ -34,7 +34,7 @@ export class User {
     description: 'Nome completo do usuário',
     example: 'João da Silva',
   })
-  name: string;
+  nome: string;
 
   @Column({
     type: 'varchar',
@@ -59,7 +59,7 @@ export class User {
     example: '5511987654321',
     nullable: true,
   })
-  telephone: string;
+  telefone: string;
 
   @Column({
     type: 'int',
@@ -71,11 +71,11 @@ export class User {
     example: 1,
     nullable: true,
   })
-  subscription: number;
+  assinatura: number;
 
   @CreateDateColumn({
     type: 'timestamp',
-    name: 'subscription_date',
+    name: 'data_assinatura',
     nullable: true,
     comment: 'Data e hora em que a assinatura foi criada ou registrada',
   })
@@ -84,5 +84,5 @@ export class User {
     example: '2024-01-01T12:00:00Z',
     nullable: true,
   })
-  subscriptionDate: Date;
+  dataAssinatura: Date;
 }

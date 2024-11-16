@@ -1,9 +1,9 @@
 import { Body, Controller, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
-import { UserService } from './user.service';
-import { CreateUserDto } from './dtos/create-user.dto';
+import { UserService } from './usuario.service';
+import { CreateUserDto } from './dtos/criar-usuario.dto';
 import { ApiResponse } from '@nestjs/swagger';
 
-@Controller('user')
+@Controller('usuario')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
@@ -15,7 +15,7 @@ export class UserController {
   @Post()
   @ApiResponse({ status: 201, description: 'Usuário criado com sucesso.' })
   @ApiResponse({ status: 400, description: 'Dados inválidos.' })
-  async createUser(@Body() createUserDto: CreateUserDto) {
-    return this.userService.createUser(createUserDto);
+  async criarUsuario(@Body() createUserDto: CreateUserDto) {
+    return this.userService.criarUsuario(createUserDto);
   }
 }

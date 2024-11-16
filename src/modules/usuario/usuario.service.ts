@@ -1,17 +1,17 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from './entities/user.entity';
+import { Usuario } from './entities/usuario.entity';
 import { Repository } from 'typeorm';
-import { CreateUserDto } from './dtos/create-user.dto';
+import { CreateUserDto } from './dtos/criar-usuario.dto';
 
 @Injectable()
 export class UserService {
   constructor(
-    @InjectRepository(User)
-    private readonly userRepository: Repository<User>,
+    @InjectRepository(Usuario)
+    private readonly userRepository: Repository<Usuario>,
   ) {}
 
-  async getUser(id: number): Promise<User> {
+  async getUser(id: number): Promise<Usuario> {
     const user = await this.userRepository.findOneBy({ id: id });
     if (!user) {
       throw new NotFoundException('Usuário não Encontrado');
@@ -19,7 +19,7 @@ export class UserService {
     return user;
   }
 
-  async createUser(createUserDto: CreateUserDto): Promise<User> {
+  async criarUsuario(createUserDto: CreateUserDto): Promise<Usuario> {
     const existingEmail = await this.userRepository.findOneBy({ email: createUserDto.email });
     if (existingEmail) {
       throw new BadRequestException('Email já está em uso.');

@@ -8,7 +8,7 @@ export class CreateUserDto {
   })
   @IsAlphanumeric(undefined, { message: 'Caractere Invalido' })
   @MaxLength(150, { message: 'Tamanho máximo de 150 caracteres' })
-  name: string; // Nome completo do usuário, obrigatório
+  nome: string; // Nome completo do usuário, obrigatório
 
   @ApiProperty({
     description: 'Email do usuário, único no sistema',
@@ -26,7 +26,7 @@ export class CreateUserDto {
   @IsOptional()
   @IsNumber(undefined, { message: 'Só pode Conter Números' })
   @IsPhoneNumber(undefined) // Valida o formato do telefone
-  telephone?: string; // Telefone do usuário, opcional
+  telefone?: string; // Telefone do usuário, opcional
 
   @ApiProperty({
     description: 'Identificador do token relacionado ao usuário',
@@ -44,7 +44,7 @@ export class CreateUserDto {
   })
   @IsOptional()
   @IsInt()
-  subscription?: number;
+  assinatura?: number;
 
   @ApiProperty({
     description: 'Data de Assinatura',
@@ -53,5 +53,5 @@ export class CreateUserDto {
   })
   @IsOptional()
   @IsDate()
-  subscriptionDate?: Date;
+  dataAssinatura?: Date;
 }
