@@ -6,7 +6,8 @@ import { TypeOrmConfigService } from 'typeorm-config.service';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CrawlerModule } from './crawler/crawler.module';
-import { UserModule } from './modules/user/user.module';
+import { UserModule } from './modules/usuario/usuario.module';
+import { BalcaoModule } from './modules/balcao/balcao.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { UserModule } from './modules/user/user.module';
     }),
     CrawlerModule,
     UserModule,
+    BalcaoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
